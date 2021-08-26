@@ -119,7 +119,7 @@ class _SideMenuState extends State<SideMenu> {
                   child: const Center(
                       child: Text(
                     kPremium,
-                    style: AppFontStyle.drawerListStyle,
+                    style: drawerListStyle,
                   )),
                   height: 60,
                 ),

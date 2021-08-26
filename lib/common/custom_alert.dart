@@ -67,7 +67,7 @@ class CustomAlert {
             child: Text(
               title,
               textAlign: TextAlign.center,
-              style: AppFontStyle.customAlertTitle,
+              style: customAlertTitle,
             ),
           );
   }

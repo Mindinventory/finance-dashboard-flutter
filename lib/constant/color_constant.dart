@@ -10,6 +10,8 @@ class AppColors {
   static const Color sideMenu = Color(0xFF1F1D2B);
   static const Color greyBlack = Color(0xff252836);
   static const Color customBlueColor = Color(0xff525298);
+  static const Color black = Colors.black;
+  static const Color BAB9C1 = Color(0xFFBAB9C1);
 
   /// Dynamic colors as per the selected theme.
   static Color get background {

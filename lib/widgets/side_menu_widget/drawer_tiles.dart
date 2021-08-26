@@ -34,7 +34,7 @@ class DrawerListTile extends StatelessWidget {
         ),
         title: Text(
           tileData.title,
-          style: AppFontStyle.drawerListStyle,
+          style: drawerListStyle,
         ),
       ),
     );

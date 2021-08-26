@@ -49,25 +49,6 @@ android {
         }
     }
 
-
-    flavorDimensions "env"
-
-    productFlavors {
-        development {
-            getIsDefault().set(true)
-            dimension "env"
-            applicationIdSuffix ".dev"
-            versionNameSuffix "-dev"
-        }
-        stage {
-            dimension "env"
-            applicationIdSuffix ".demo"
-            versionNameSuffix "-demo"
-        }
-        prod {
-            dimension "env"
-        }
-    }
 }
 
 flutter {

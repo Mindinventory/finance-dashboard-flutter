@@ -7,4 +7,8 @@ class AssetImages {
   static const String premiumIcon = 'assets/icons/svg_premium.svg';
   static const String settingsIcon = 'assets/icons/svg_settings.svg';
   static const String silyImage = 'assets/icons/img_sily.png';
+  static const String imgUser = 'assets/icons/img_user.png';
+  static const String icCard = 'assets/icons/ic_card.svg';
+  static const String icVisa = 'assets/icons/ic_visa.svg';
+  static const String imgNoise = 'assets/icons/img_noise.png';
 }
