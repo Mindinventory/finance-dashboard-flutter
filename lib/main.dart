@@ -1,10 +1,11 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:finance_dashboard/ui/app.dart';
 
 import 'constant/color_constant.dart';
 import 'theme/setup_locator.dart';
+import 'ui/app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,7 +24,7 @@ void main() async {
   dbInitializer.addProvider(NotificationSQLiteProvider.instance);
   await dbInitializer.initialize();*/
 
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     systemNavigationBarColor: AppColors.white, // navigation bar color
     statusBarColor: AppColors.white, // status bar color
   ));

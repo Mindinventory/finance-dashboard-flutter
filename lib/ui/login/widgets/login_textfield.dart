@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:finance_dashboard/theme/app_theme.dart';
+import '../../../theme/app_theme.dart';
 
 class LoginTextField extends StatelessWidget {
   final String? hintText;
@@ -25,12 +25,12 @@ class LoginTextField extends StatelessWidget {
     );
 
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         boxShadow: [
           BoxShadow(
             color: Colors.black38,
             blurRadius: 25,
-            offset: const Offset(0, 10),
+            offset: Offset(0, 10),
           ),
         ],
       ),
@@ -41,7 +41,7 @@ class LoginTextField extends StatelessWidget {
         keyboardType: textInputType ?? TextInputType.text,
         style: _textStyle,
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.only(left: 7.0, right: 7.0),
+          contentPadding: const EdgeInsets.only(left: 7.0, right: 7.0),
           focusedBorder: InputBorder.none,
           enabledBorder: InputBorder.none,
           filled: true,

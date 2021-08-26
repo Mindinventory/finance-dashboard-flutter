@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:finance_dashboard/constant/constant_public.dart';
 import 'package:get/get.dart';
 
+import '../constant/constant_public.dart';
+
 class CustomAlert {
-  static void showAlert(String message, {
+  static void showAlert(
+    String message, {
     String? title,
     String? btnFirst = 'Ok',
     String? btnSecond,
@@ -15,8 +17,7 @@ class CustomAlert {
       barrierLabel: 'barrierLabel',
       barrierColor: Colors.black45,
       transitionDuration: const Duration(milliseconds: 200),
-      pageBuilder: (BuildContext buildContext, Animation animation,
-          Animation secondaryAnimation) {
+      pageBuilder: (BuildContext buildContext, Animation animation, Animation secondaryAnimation) {
         return Material(
           color: Colors.transparent,
           child: SafeArea(
@@ -62,13 +63,13 @@ class CustomAlert {
     return (title == null)
         ? Container(height: 10)
         : Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Text(
-        title,
-        textAlign: TextAlign.center,
-        style: AppFontStyle.customAlertTitle,
-      ),
-    );
+            padding: const EdgeInsets.all(10.0),
+            child: Text(
+              title,
+              textAlign: TextAlign.center,
+              style: AppFontStyle.customAlertTitle,
+            ),
+          );
   }
 
   static Widget _messageWidget({String? message}) {
@@ -94,36 +95,35 @@ class CustomAlert {
           (cancel == null)
               ? Container()
               : Expanded(
-            child: InkWell(
-              onTap: () {
-                if (handler != null) {
-                  handler(1);
-                }
+                  child: InkWell(
+                    onTap: () {
+                      if (handler != null) {
+                        handler(1);
+                      }
 
-                Navigator.pop(Get.context!);
-              },
-              child: Container(
-                height: 40,
-                decoration: BoxDecoration(
-                  color: AppColors.white,
-                  // borderRadius: BorderRadius.all(Radius.circular(2)),
-                  border: Border(
-                    top: BorderSide(
-                        color: Colors.grey.shade500, width: 0.5),
-                    // right: BorderSide(
-                    //     color: Colors.grey.shade500, width: 0.5),
-                  )
-                  ,),
-                child: Center(
-                  child: Text(
-                    cancel,
-                    textAlign: TextAlign.center,
-                    maxLines: 1,
+                      Navigator.pop(Get.context!);
+                    },
+                    child: Container(
+                      height: 40,
+                      decoration: BoxDecoration(
+                        color: AppColors.white,
+                        // borderRadius: BorderRadius.all(Radius.circular(2)),
+                        border: Border(
+                          top: BorderSide(color: Colors.grey.shade500, width: 0.5),
+                          // right: BorderSide(
+                          //     color: Colors.grey.shade500, width: 0.5),
+                        ),
+                      ),
+                      child: Center(
+                        child: Text(
+                          cancel,
+                          textAlign: TextAlign.center,
+                          maxLines: 1,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ),
-          ),
           Expanded(
             child: InkWell(
               onTap: () {
@@ -139,11 +139,7 @@ class CustomAlert {
                 decoration: BoxDecoration(
                     color: AppColors.white,
                     // borderRadius: BorderRadius.all(Radius.circular(2)),
-                    border: Border(
-                        top:
-                        BorderSide(color: Colors.grey.shade500, width: 0.5),
-                        left: BorderSide(
-                            color: Colors.grey.shade500, width: 0.5))),
+                    border: Border(top: BorderSide(color: Colors.grey.shade500, width: 0.5), left: BorderSide(color: Colors.grey.shade500, width: 0.5))),
                 child: Center(
                   child: Text(
                     ok ?? '',

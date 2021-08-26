@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:finance_dashboard/constant/constant_public.dart';
+import '../constant/constant_public.dart';
 
 class ThemeColors {
   Color get primaryColor {
-    return isLightMode ? Colors.black : Color(0xFF262628);
+    return isLightMode ? Colors.black : const Color(0xFF262628);
   }
 
   static Color get primaryColorDark {
-    return isLightMode ? Colors.black : Color(0xFF1F1D2B);
+    return isLightMode ? Colors.black : const Color(0xFF1F1D2B);
   }
 
   static Color get primaryColorLight {
-    return isLightMode ? Color(0xFF262628) : Color(0xFF262628);
+    return isLightMode ? const Color(0xFF262628) : const Color(0xFF262628);
   }
 
   static Color get accentColor {
-    return isLightMode ? Color(0xFFFF6600) : Color(0xFFFFC502);
+    return isLightMode ? const Color(0xFFFF6600) : const Color(0xFFFFC502);
   }
 
   static Color get backgroundColor {
-    return isLightMode ? Color(0xFFF9F9F9) : Color(0xFF121212);
+    return isLightMode ? const Color(0xFFF9F9F9) : const Color(0xFF121212);
   }
 
   static Color get zoomInOutTextColor {
@@ -29,7 +29,7 @@ class ThemeColors {
   }
 
   static Color get scaffoldBackgroundColor {
-    return isLightMode ? Colors.white : Color(0xFF121212);
+    return isLightMode ? Colors.white : const Color(0xFF121212);
   }
 
   static Color get selectedTextColor {
@@ -38,7 +38,7 @@ class ThemeColors {
 
   static Color get highlightedTextColor {
     return isLightMode
-        ? Color.fromARGB(255, 255, 92, 92)
-        : Color.fromARGB(255, 92, 255, 92);
+        ? const Color.fromARGB(255, 255, 92, 92)
+        : const Color.fromARGB(255, 92, 255, 92);
   }
 }

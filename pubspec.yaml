@@ -39,8 +39,8 @@ dev_dependencies:
 
   flutter_test:
     sdk: flutter
+  lints: ^1.0.1
 
-  pedantic: ^1.9.0
 
 flutter:
 
