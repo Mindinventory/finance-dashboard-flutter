@@ -50,7 +50,7 @@ class AppTextField extends StatelessWidget {
       autofocus: false,
       readOnly: _isReadOnly,
       maxLength: maxLength,
-      style: AppFontStyle.textFiledNormal(),
+      style: textFiledNormal(),
       inputFormatters: inputFormatter,
       onChanged: onTextChange,
       textInputAction: TextInputAction.next,
@@ -72,7 +72,7 @@ class AppTextField extends StatelessWidget {
         ),
         filled: true,
         hintText: '',
-        hintStyle: AppFontStyle.textFiledNormal(color: Colors.grey),
+        hintStyle: textFiledNormal(color: Colors.grey),
         errorBorder: const OutlineInputBorder(
           borderSide: BorderSide(color: Colors.transparent, width: 0),
           borderRadius: BorderRadius.all(
