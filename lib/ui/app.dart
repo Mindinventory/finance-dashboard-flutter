@@ -35,6 +35,6 @@ class App extends StatelessWidget {
   }
 
   String _initMainScreen() {
-    return Routes.home;
+    return Routes.dashboard;
   }
 }
