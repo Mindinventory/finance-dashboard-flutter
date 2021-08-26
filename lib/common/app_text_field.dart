@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:finance_dashboard/constant/constant_public.dart';
+import '../constant/constant_public.dart';
 
 class AppTextField extends StatelessWidget {
   AppTextField({

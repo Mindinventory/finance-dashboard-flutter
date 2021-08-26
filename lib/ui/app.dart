@@ -6,12 +6,10 @@ import 'package:finance_dashboard/common/common_public.dart';
 import 'package:finance_dashboard/theme/app_theme.dart';
 
 class App extends StatelessWidget {
-
   ThemeCubit themeCubit = ThemeCubit(isLight: true);
 
   @override
   Widget build(BuildContext context) {
-
     return MultiBlocProvider(
       providers: [
         BlocProvider<ThemeCubit>(
@@ -34,11 +32,9 @@ class App extends StatelessWidget {
         },
       ),
     );
-
-
   }
 
   String _initMainScreen() {
-    return Routes.login;
+    return Routes.home;
   }
 }
