@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
         Visibility(
             visible: (ScreenType.isDesktop(context)) ||
                 (ScreenType.isTablet(context)),
-            child: Expanded(flex: 4, child: SideMenu())),
+            child: const Expanded(flex: 4, child: SideMenu())),
         Expanded(
           flex: 10,
           child: Container(color: Colors.red),

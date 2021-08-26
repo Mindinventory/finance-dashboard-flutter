@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:finance_dashboard/cubit/theme/theme_cubit.dart';
 import 'package:get/get.dart';
-import 'package:finance_dashboard/common/common_public.dart';
-import 'package:finance_dashboard/theme/app_theme.dart';
+
+import '../common/common_public.dart';
+import '../cubit/theme/theme_cubit.dart';
 
 class App extends StatelessWidget {
   ThemeCubit themeCubit = ThemeCubit(isLight: true);

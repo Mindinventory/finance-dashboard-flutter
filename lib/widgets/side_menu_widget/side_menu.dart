@@ -1,5 +1,6 @@
-import 'package:finance_dashboard/common/common_function.dart';
 import 'package:flutter/material.dart';
+
+import '../../common/common_function.dart';
 import '../../constant/app_assets.dart';
 import '../../constant/color_constant.dart';
 import '../../constant/constant_public.dart';
@@ -16,6 +17,7 @@ class SideMenu extends StatefulWidget {
 
 class _SideMenuState extends State<SideMenu> {
   final List<DrawerTilesModel> _tileList = [];
+
   @override
   void initState() {
     _tileList.addAll(CommonFunction().getTilesData());
@@ -58,9 +60,7 @@ class _SideMenuState extends State<SideMenu> {
         primary: false,
         itemCount: _tileList.length,
         itemBuilder: (context, i) {
-          return DrawerListTile(
-              tileData: _tileList[i],
-              pressFunction: () => _listSelectAction(i, context));
+          return DrawerListTile(tileData: _tileList[i], pressFunction: () => _listSelectAction(i, context));
         });
   }
 
@@ -74,7 +74,7 @@ class _SideMenuState extends State<SideMenu> {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text(_tileList[i].title),
         backgroundColor: AppColors.customBlueColor,
-        duration: Duration(milliseconds: 300),
+        duration: const Duration(milliseconds: 300),
       ));
     });
   }
@@ -100,8 +100,7 @@ class _SideMenuState extends State<SideMenu> {
                       maxLines: 2,
                       textAlign: TextAlign.center,
                     ),
-                    padding: EdgeInsets.symmetric(
-                        horizontal: width * 0.02, vertical: height * 0.04),
+                    padding: EdgeInsets.symmetric(horizontal: width * 0.02, vertical: height * 0.04),
                   ),
                 ],
               ),
@@ -117,7 +116,7 @@ class _SideMenuState extends State<SideMenu> {
                 ),
                 color: AppColors.customBlueColor,
                 child: Container(
-                  child: Center(
+                  child: const Center(
                       child: Text(
                     kPremium,
                     style: AppFontStyle.drawerListStyle,
@@ -125,12 +124,7 @@ class _SideMenuState extends State<SideMenu> {
                   height: 60,
                 ),
               )),
-          Positioned(
-              left: 0,
-              right: 0,
-              top: 0,
-              bottom: 30,
-              child: Image.asset(AssetImages.silyImage)),
+          Positioned(left: 0, right: 0, top: 0, bottom: 30, child: Image.asset(AssetImages.silyImage)),
         ],
       ),
     );

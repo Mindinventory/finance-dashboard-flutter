@@ -1,3 +1,5 @@
+include: package:lints/recommended.yaml
+
 analyzer:
 
   errors:
@@ -6,6 +8,13 @@ analyzer:
     missing_return: warning
     dead_code: info
     mixin_inherits_from_not_object: ignore
+    prefer_single_quotes: error
+    prefer_relative_imports: error
+    avoid_positional_boolean_parameters: warning
+    public_member_api_docs: false
+    omit_local_variable_types: warning
+    prefer_const_declarations: error
+    prefer_const_constructors: error
   exclude:
     - '**/*.g.dart'
     - lib/**/*.g.dart
@@ -25,6 +34,9 @@ linter:
     - directives_ordering
     #- lines_longer_than_80_chars # avoid
     - curly_braces_in_flow_control_structures
+    - prefer_relative_imports
+    - prefer_const_declarations
+    - prefer_const_constructors
 
     # DOCUMENTATION
     #- slash_for_doc_comments

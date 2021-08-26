@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:finance_dashboard/common/common_public.dart';
-import 'package:finance_dashboard/constant/constant_public.dart';
-import 'package:finance_dashboard/cubit/theme/theme_cubit.dart';
 
+import '../../common/common_public.dart';
+import '../../constant/constant_public.dart';
+import '../../cubit/theme/theme_cubit.dart';
 import 'widgets/login_textfield.dart';
 
 class LoginPage extends StatefulWidget {
@@ -28,15 +28,14 @@ class _LoginPageState extends State<LoginPage> {
           IconButton(
             icon: Icon(Icons.color_lens_outlined, color: appTheme.accentColor),
             onPressed: () {
-              BlocProvider.of<ThemeCubit>(context, listen: false).changeTheme(
-                  !BlocProvider.of<ThemeCubit>(context, listen: false).isLight);
+              BlocProvider.of<ThemeCubit>(context, listen: false).changeTheme(!BlocProvider.of<ThemeCubit>(context, listen: false).isLight);
             },
           ),
         ],
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -55,9 +54,7 @@ class _LoginPageState extends State<LoginPage> {
                 obscureText: true,
                 appTheme: appTheme,
               ),
-              SizedBox(
-                height: 50,
-              ),
+              const SizedBox(height: 50),
               Center(
                 child: RaisedButton(
                   onPressed: () async {
@@ -68,7 +65,7 @@ class _LoginPageState extends State<LoginPage> {
                     }
                     //TODO: Login code(Navigate to home screen)
                   },
-                  child: Text(kLogin, style: TextStyle(fontSize: 20)),
+                  child: const Text(kLogin, style: TextStyle(fontSize: 20)),
                 ),
               ),
             ],
