@@ -1,10 +1,10 @@
-import 'package:flutter/rendering.dart';
-
-import '../right_panel/right_panel_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 import '../../common/screen_type.dart';
 import '../../widgets/side_menu_widget/side_menu.dart';
+import '../../widgets/top_activites_widget/top_activities.dart';
+import '../right_panel/right_panel_page.dart';
 
 class DashBoard extends StatefulWidget {
   const DashBoard({Key? key}) : super(key: key);
@@ -24,7 +24,8 @@ class _DashBoardState extends State<DashBoard> {
 
   Widget _buildDashboardSections(BuildContext context) {
     return SafeArea(
-      child: LayoutBuilder(builder: (BuildContext context, BoxConstraints constraints) {
+      child: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
         return Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -93,14 +94,9 @@ class _DashBoardState extends State<DashBoard> {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Expanded(
-                      child: Container(
-                        child: const Text('Top Activities Widget'),
-                        alignment: Alignment.center,
-                        height: 420,
-                        color: Colors.orange,
-                      ),
-                    ),
+                    (ScreenType.isDesktop(context))
+                        ? TopActivities()
+                        : Container(),
                     const SizedBox(width: 16.0),
                     Expanded(
                       flex: 2,
@@ -121,12 +117,14 @@ class _DashBoardState extends State<DashBoard> {
                           ),
                         ],
                       ),
-                    )
+                    ),
                   ],
-                )
+                ),
               ],
             ),
-            (ScreenType.isMobile(context)) ? const SizedBox(height: 16.0) : Container(),
+            (ScreenType.isMobile(context))
+                ? const SizedBox(height: 16.0)
+                : Container(),
             //(ScreenType.isMobile(context)) ? _buildChartView() : Container(),
             (constraints.maxWidth < 1230) ? _buildChartView() : Container(),
           ],
