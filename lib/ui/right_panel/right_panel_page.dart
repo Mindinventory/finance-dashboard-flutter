@@ -8,7 +8,6 @@ import '../../common/images_path.dart';
 import '../../constant/color_constant.dart';
 import '../../constant/font_style.dart';
 import '../../cubit/theme/theme_cubit.dart';
-import 'widget/doughnut_graph.dart';
 import 'widget/spline_graph.dart' show SplineGraph;
 import 'widget/square_button.dart';
 
@@ -101,7 +100,9 @@ class _RightPanelState extends State<RightPanel> {
                     height: 53.0,
                     width: 137.82,
                     decoration: const BoxDecoration(
-                        color: AppColors.reportDropDownColor, borderRadius: BorderRadius.all(Radius.circular(15.0))),
+                      color: AppColors.reportDropDownColor,
+                      borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                    ),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 15.0),
                       child: Row(
@@ -145,7 +146,7 @@ class _RightPanelState extends State<RightPanel> {
                   TextSpan(text: '%', style: percentageIconStyle),
                 ]),
               ),
-              const DoughnutGraph(),
+              _doughnutChatSvg()!, //DoughnutGraph(),
             ],
           ),
           const SizedBox(height: 25.0),
@@ -155,16 +156,22 @@ class _RightPanelState extends State<RightPanel> {
     );
   }
 
+  Widget? _doughnutChatSvg() {
+    return SvgPicture.asset(
+      ImagesPath.doughnutChartPath,
+    );
+  }
+
   Widget? _getDoughnutData() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30.0),
       child: Column(
         children: <Widget>[
-          _commonDoughnutData('Utility', '\$847.00', AppColors.blue)!,
+          _commonDoughnutData('Utility', '\$ 847.00', AppColors.blue)!,
           const SizedBox(height: 20.0),
-          _commonDoughnutData('Taxi', '\$568.50', AppColors.purple)!,
+          _commonDoughnutData('Taxi', '\$ 568.50', AppColors.purple)!,
           const SizedBox(height: 20.0),
-          _commonDoughnutData('Food', '\$685.50', AppColors.orange)!,
+          _commonDoughnutData('Food', '\$ 685.50', AppColors.orange)!,
         ],
       ),
     );

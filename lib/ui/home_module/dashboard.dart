@@ -1,3 +1,5 @@
+import 'package:flutter/rendering.dart';
+
 import '../right_panel/right_panel_page.dart';
 import 'package:flutter/material.dart';
 
@@ -22,43 +24,48 @@ class _DashBoardState extends State<DashBoard> {
 
   Widget _buildDashboardSections(BuildContext context) {
     return SafeArea(
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Visibility(
-            visible: (ScreenType.isDesktop(context)) ||
-                (ScreenType.isTablet(context)),
-            child: const Expanded(
-              child: SideMenu(),
-            ),
-          ),
-          Expanded(
-            flex: 5,
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      _buildCenterView(),
-                      (!ScreenType.isMobile(context))
-                          ? Expanded(
-                              flex: 2,
-                              child: _buildChartView(),
-                            )
-                          : Container(),
-                    ],
-                  )
-                ],
+      child: LayoutBuilder(builder: (BuildContext context, BoxConstraints constraints) {
+        return Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Visibility(
+              visible: _visibilityForTabAndWeb(),
+              child: const Expanded(
+                child: SideMenu(),
               ),
             ),
-          ),
-        ],
-      ),
+            Expanded(
+              flex: 5,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        _buildCenterView(constraints),
+                        (constraints.maxWidth > 1230)
+                            ? Expanded(
+                                flex: 2,
+                                child: _buildChartView(),
+                              )
+                            : Container(),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ],
+        );
+      }),
     );
   }
 
-  Widget _buildCenterView() {
+  bool _visibilityForTabAndWeb() {
+    return (ScreenType.isDesktop(context)) || (ScreenType.isTablet(context));
+  }
+
+  Widget _buildCenterView(BoxConstraints constraints) {
     return Expanded(
       flex: 5,
       child: Container(
@@ -119,10 +126,9 @@ class _DashBoardState extends State<DashBoard> {
                 )
               ],
             ),
-            (ScreenType.isMobile(context))
-                ? const SizedBox(height: 16.0)
-                : Container(),
-            (ScreenType.isMobile(context)) ? _buildChartView() : Container(),
+            (ScreenType.isMobile(context)) ? const SizedBox(height: 16.0) : Container(),
+            //(ScreenType.isMobile(context)) ? _buildChartView() : Container(),
+            (constraints.maxWidth < 1230) ? _buildChartView() : Container(),
           ],
         ),
       ),
