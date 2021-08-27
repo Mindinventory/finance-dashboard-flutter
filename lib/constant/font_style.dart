@@ -8,11 +8,7 @@ import 'color_constant.dart';
 const fontFamilyRubik = 'Rubik';
 
 TextStyle textFiledNormal({Color color = Colors.black}) {
-  return TextStyle(
-      color: color,
-      fontFamily: fontFamilyRubik,
-      fontSize: 15.0,
-      fontWeight: FontWeight.normal);
+  return TextStyle(color: color, fontFamily: fontFamilyRubik, fontSize: 15.0, fontWeight: FontWeight.normal);
 }
 
 const customAlertTitle = TextStyle(
@@ -31,7 +27,7 @@ const headerText = TextStyle(
 );
 
 const subHeaderText = TextStyle(
-  color: AppColors.BAB9C1,
+  color: AppColors.silver,
   fontSize: 17.0,
   fontFamily: fontFamilyRubik,
   fontWeight: FontWeight.normal,
@@ -45,7 +41,44 @@ const textWhite500_24 = TextStyle(
 );
 
 const drawerListStyle = TextStyle(
-    fontFamily: fontFamilyRubik,
-    color: AppColors.white,
-    fontSize: 16,
-    fontWeight: FontWeight.normal);
+    fontFamily: fontFamilyRubik, color: AppColors.white, fontSize: 16, fontWeight: FontWeight.normal);
+
+const customReportTitle = TextStyle(
+  color: Colors.white,
+  fontFamily: fontFamilyRubik,
+  fontSize: 20.0,
+  fontWeight: FontWeight.w500,
+  decoration: TextDecoration.none,
+);
+
+const customDropDownTitle = TextStyle(
+  color: Colors.white,
+  fontFamily: fontFamilyRubik,
+  fontSize: 16.0,
+  fontWeight: FontWeight.w400,
+  decoration: TextDecoration.none,
+);
+
+const percentageStyle = TextStyle(
+  color: Colors.white,
+  fontFamily: fontFamilyRubik,
+  fontSize: 25.0,
+  fontWeight: FontWeight.w400,
+  decoration: TextDecoration.none,
+);
+
+const percentageIconStyle = TextStyle(
+  color: Colors.white,
+  fontFamily: fontFamilyRubik,
+  fontSize: 15.0,
+  fontWeight: FontWeight.w400,
+  decoration: TextDecoration.none,
+);
+
+const doughnutDataStyle = TextStyle(
+  color: Colors.white,
+  fontFamily: fontFamilyRubik,
+  fontSize: 17.0,
+  fontWeight: FontWeight.w400,
+  decoration: TextDecoration.none,
+);
