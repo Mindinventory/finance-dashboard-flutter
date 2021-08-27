@@ -29,10 +29,8 @@ class _SplineGraphState extends State<SplineGraph> {
   }
 
   Widget _buildBody() {
-    return Container(
-      width: 355.0,
-      height: 290.0,
-      child: SfCartesianChart(
+    return LayoutBuilder(builder: (BuildContext context, BoxConstraints constraints) {
+      return SfCartesianChart(
         backgroundColor: Colors.transparent,
         onTooltipRender: (TooltipArgs args) {
           args.text = 'expense\n\$2,250.00';
@@ -56,8 +54,8 @@ class _SplineGraphState extends State<SplineGraph> {
         ),
         series: _getSplineTypesSeries(),
         tooltipBehavior: _tooltipBehavior,
-      ),
-    );
+      );
+    });
   }
 
   List<SplineSeries<_ChartData, String>> _getSplineTypesSeries() {

@@ -1,7 +1,7 @@
-import 'dart:math' as math;
+
+import 'package:flutter/material.dart';
 
 import '../../../widgets/charts/charts_widget/charts.dart';
-import 'package:flutter/material.dart';
 
 class DoughnutGraph extends StatefulWidget {
   const DoughnutGraph({Key? key}) : super(key: key);
@@ -11,6 +11,9 @@ class DoughnutGraph extends StatefulWidget {
 }
 
 class _DoughnutGraphState extends State<DoughnutGraph> {
+  String outerRadius = '120.0';
+  String innerRadius = '90.0';
+
   @override
   Widget build(BuildContext context) {
     return _buildBody();
@@ -28,8 +31,6 @@ class _DoughnutGraphState extends State<DoughnutGraph> {
     );
   }
 
-  //transform: Matrix4.rotationY(math.pi),
-
   List<DoughnutSeries<DoughnutChartData, String>> _getDoughnutSeries() {
     final chartData = <DoughnutChartData>[
       DoughnutChartData(content: 'test1', value: 5),
@@ -39,8 +40,8 @@ class _DoughnutGraphState extends State<DoughnutGraph> {
     ];
     return <DoughnutSeries<DoughnutChartData, String>>[
       DoughnutSeries<DoughnutChartData, String>(
-        //radius: '90.0',
-        innerRadius: '80.0',
+        radius: outerRadius,
+        innerRadius: innerRadius,
         cornerStyle: CornerStyle.bothCurve,
 
         /// To set the spline type here.
