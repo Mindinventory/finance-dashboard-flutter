@@ -1,3 +1,4 @@
+import '../right_panel/right_panel_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../common/screen_type.dart';
@@ -129,36 +130,6 @@ class _DashBoardState extends State<DashBoard> {
   }
 
   Widget _buildChartView() {
-    return Container(
-      color: Colors.green,
-      padding: const EdgeInsets.all(20.0),
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(height: 16.0),
-            Container(
-              child: const Text('Chart Header'),
-              alignment: Alignment.center,
-              height: 100,
-              color: Colors.blue,
-            ),
-            const SizedBox(height: 16.0),
-            Container(
-              child: const Text('Chart 1'),
-              alignment: Alignment.center,
-              height: 400,
-              color: Colors.blue,
-            ),
-            const SizedBox(height: 16.0),
-            Container(
-              child: const Text('Chart 2'),
-              alignment: Alignment.center,
-              height: 400,
-              color: Colors.blue,
-            ),
-          ],
-        ),
-      ),
-    );
+    return const RightPanel();
   }
 }
