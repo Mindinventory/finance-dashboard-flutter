@@ -34,6 +34,8 @@ dependencies:
   get: ^4.3.8
   get_it: ^7.2.0
   flutter_svg: ^0.22.0
+  smooth_page_indicator: ^0.3.0-nullsafety.0
+  carousel_slider: ^4.0.0
 
 dev_dependencies:
 
@@ -76,3 +78,11 @@ flutter:
           weight: 900
         - asset: assets/fonts/Rubik-ExtraBoldItalic.ttf
           weight: 900
+    - family: Trapper
+      fonts:
+        - asset: assets/fonts/Trapper-John.ttf
+          weight: 500
+    - family: Room
+      fonts:
+        - asset: assets/fonts/Room-Medium.ttf
+          weight: 500
