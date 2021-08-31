@@ -1,10 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../common/background_widget.dart';
 import '../../common/common_function.dart';
 import '../../constant/app_assets.dart';
 import '../../constant/color_constant.dart';
 import '../../constant/constant_public.dart';
-import '../../constant/string_constants.dart';
 import '../../model/drawer_tiles_model.dart';
 import '../side_menu_widget/drawer_tiles.dart';
 
@@ -35,19 +37,26 @@ class _SideMenuState extends State<SideMenu> {
     return SingleChildScrollView(
       child: Container(
         color: AppColors.sideMenu,
-        child: Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: _height * 0.075),
-              child: Image.asset(
-                AssetImages.menuHeader,
-              ),
+        child: Stack(
+          children: <Widget>[
+            Image.asset(
+              AssetImages.imgLeftCardNoise,
+              height: 850.0,
+              width: double.infinity,
+              fit: BoxFit.fill,
             ),
-            _buildDrawerList(),
-            SizedBox(
-              height: _height * 0.09,
+            Column(
+              children: [
+                const SizedBox(height: 20.0),
+                SvgPicture.asset(AssetImages.menuHeader),
+                const SizedBox(height: 10.0),
+                _buildDrawerList(),
+                SizedBox(
+                  height: _height * 0.09,
+                ),
+                _buildImageCard(_width, _height)
+              ],
             ),
-            _buildImageCard(_width, _height)
           ],
         ),
       ),
@@ -71,60 +80,70 @@ class _SideMenuState extends State<SideMenu> {
         _tileList[index].isPressed = false;
       }
       _tileList[i].isPressed = true;
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(_tileList[i].title),
-        backgroundColor: AppColors.customBlueColor,
-        duration: const Duration(milliseconds: 300),
-      ));
     });
   }
 
   Widget _buildImageCard(double width, double height) {
     return Container(
-      height: 300,
+      height: 350,
       child: Stack(
         children: [
-          Card(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15.0),
-            ),
-            color: AppColors.greyBlack,
+          BackgroundWidget(
             child: Container(
-              height: 230,
-              width: 200,
-              child: Column(
-                children: [
-                  Container(
-                    child: const Text(
-                      kPremiumPurchase,
-                      maxLines: 2,
-                      textAlign: TextAlign.center,
-                    ),
-                    padding: EdgeInsets.symmetric(horizontal: width * 0.02, vertical: height * 0.04),
-                  ),
-                ],
+              height: 280.0,
+              width: 200.0,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15.0),
+              ),
+              child: const Padding(
+                padding: EdgeInsets.only(top: 20.0),
+                child: Text(
+                  kPremiumPurchase,
+                  maxLines: 2,
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
           ),
           Positioned(
-              bottom: 30,
-              right: width * 0.02,
-              left: width * 0.02,
-              child: Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15.0),
-                ),
-                color: AppColors.customBlueColor,
-                child: Container(
-                  child: const Center(
+            bottom: 30,
+            right: width * 0.02,
+            left: width * 0.02,
+            child: Stack(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15.0),
+                    color: AppColors.customBlueColor,
+                  ),
+                  child: Container(
+                    child: const Center(
                       child: Text(
-                    kPremium,
-                    style: drawerListText,
-                  )),
-                  height: 60,
+                        kPremium,
+                        style: drawerListStyle,
+                      ),
+                    ),
+                    height: 60,
+                  ),
                 ),
-              )),
-          Positioned(left: 0, right: 0, top: 0, bottom: 30, child: Image.asset(AssetImages.silyImage)),
+                ClipRRect(
+                  borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+                  child: Image.asset(
+                    AssetImages.imgNoise,
+                    height: 60.0,
+                    fit: BoxFit.fill,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Positioned(
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 30,
+            child: Image.asset(AssetImages.silyImage),
+          ),
         ],
       ),
     );

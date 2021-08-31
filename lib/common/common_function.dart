@@ -6,7 +6,7 @@ class CommonFunction {
   List<DrawerTilesModel> getTilesData() {
     return [
       DrawerTilesModel(
-          title: kDashboard, icons: AssetImages.menuIcon, isPressed: false),
+          title: kDashboard, icons: AssetImages.menuIcon, isPressed: true),
       DrawerTilesModel(
           title: kCards, icons: AssetImages.cardIcon, isPressed: false),
       DrawerTilesModel(
