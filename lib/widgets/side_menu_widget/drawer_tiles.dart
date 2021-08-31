@@ -21,7 +21,7 @@ class DrawerListTile extends StatelessWidget {
             horizontal: _width * 0.01,
           ),
           padding: const EdgeInsets.symmetric(
-            vertical: 8,
+            vertical: 9.0,
           ),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15.0),
@@ -39,12 +39,16 @@ class DrawerListTile extends StatelessWidget {
           ),
         ),
         tileData.isPressed
-            ? const Center(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                  child: Image(
-                    image: AssetImage(AssetImages.imgNoise),
-                    width: 215.0,
+            ? Center(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: _width * 0.01,
+                  ),
+                  child: const ClipRRect(
+                    borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                    child: Image(
+                      image: AssetImage(AssetImages.imgNoise),
+                    ),
                   ),
                 ),
               )

@@ -41,7 +41,7 @@ class _SideMenuState extends State<SideMenu> {
           children: <Widget>[
             Image.asset(
               AssetImages.imgLeftCardNoise,
-              height: 850.0,
+              height: 900.0,
               width: double.infinity,
               fit: BoxFit.fill,
             ),
