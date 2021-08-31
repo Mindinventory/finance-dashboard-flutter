@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../common/common_public.dart';
@@ -20,14 +21,17 @@ class App extends StatelessWidget {
         bloc: themeCubit,
         builder: (context, state) {
           print('BlocListener : ${themeCubit.isLight}');
-          return GetMaterialApp(
-            title: 'Flutter Base Project',
-            debugShowCheckedModeBanner: false,
-            enableLog: false,
-            navigatorKey: Get.key,
-            theme: themeCubit.appTheme.theme,
-            initialRoute: _initMainScreen(),
-            getPages: routes,
+          return ScreenUtilInit(
+            designSize: const Size(1440, 960),
+            builder: () => GetMaterialApp(
+              title: 'Flutter Base Project',
+              debugShowCheckedModeBanner: false,
+              enableLog: false,
+              navigatorKey: Get.key,
+              theme: themeCubit.appTheme.theme,
+              initialRoute: _initMainScreen(),
+              getPages: routes,
+            ),
           );
         },
       ),

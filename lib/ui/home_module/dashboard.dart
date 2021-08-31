@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:provider/provider.dart';
+
+import '../../common/background_widget.dart';
+import '../../common/menu_controller.dart';
 import '../../common/screen_type.dart';
+import '../../widgets/center_card_widget/center_card_header_widget.dart';
+import '../../widgets/center_card_widget/transfer_money_widget.dart';
 import '../../widgets/side_menu_widget/side_menu.dart';
 import '../../widgets/top_activites_widget/top_activities.dart';
 import '../../widgets/user_cards/credit_card_slider.dart';
@@ -25,6 +31,7 @@ class _DashBoardState extends State<DashBoard> {
   Widget build(BuildContext context) {
     _width = MediaQuery.of(context).size.width;
     return Scaffold(
+      key: context.read<MenuController>().scaffoldKey,
       drawer: const SideMenu(),
       body: _buildDashboardSections(context),
     );
@@ -33,16 +40,17 @@ class _DashBoardState extends State<DashBoard> {
   Widget _buildDashboardSections(BuildContext context) {
     return SafeArea(
       child: LayoutBuilder(
-          builder: (BuildContext context, BoxConstraints constraints) {
-            return Row(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          return BackgroundWidget(
+            child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Visibility(
                   visible: (_width >= 1150),
-              child: const Expanded(
-                child: SideMenu(),
-              ),
-            ),
+                  child: const Expanded(
+                    child: SideMenu(),
+                  ),
+                ),
                 Expanded(
                   flex: 5,
                   child: SingleChildScrollView(
@@ -54,9 +62,9 @@ class _DashBoardState extends State<DashBoard> {
                             _buildCenterView(constraints),
                             (constraints.maxWidth > 1230)
                                 ? Expanded(
-                              flex: 2,
-                              child: _buildChartView(),
-                            )
+                                    flex: 2,
+                                    child: _buildChartView(),
+                                  )
                                 : Container(),
                           ],
                         )
@@ -65,8 +73,10 @@ class _DashBoardState extends State<DashBoard> {
                   ),
                 ),
               ],
-            );
-          }),
+            ),
+          );
+        },
+      ),
     );
   }
 
@@ -78,23 +88,20 @@ class _DashBoardState extends State<DashBoard> {
     return Expanded(
       flex: 5,
       child: Container(
-        color: Colors.red,
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
             const SizedBox(height: 16.0),
             Container(
-              child: const Text('Center Header Widget'),
+              child: const CenterHeader(),
               alignment: Alignment.center,
               height: 100,
-              color: Colors.orange,
             ),
             const SizedBox(height: 16.0),
             Container(
-              child: const Text('Transfer Money Widget'),
+              child: const TransferMoney(),
               alignment: Alignment.center,
               height: 200,
-              color: Colors.orange,
             ),
             const SizedBox(height: 16.0),
             _getMidSection(),
