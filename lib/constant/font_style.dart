@@ -47,7 +47,7 @@ const textWhite500_24 = TextStyle(
   fontWeight: FontWeight.normal,
 );
 
-const drawerListText = TextStyle(
+const drawerListStyle = TextStyle(
   fontFamily: fontFamilyRubik,
   color: AppColors.white,
   fontSize: 16,
