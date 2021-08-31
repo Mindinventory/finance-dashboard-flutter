@@ -11,4 +11,6 @@ class AssetImages {
   static const String icCard = 'assets/icons/ic_card.svg';
   static const String icVisa = 'assets/icons/ic_visa.svg';
   static const String imgNoise = 'assets/icons/img_noise.png';
+  static const String creditCardPink = 'assets/icons/img_credit_card_pink.png';
+  static const String creditCardBlue = 'assets/icons/img_credit_card_blue.png';
 }

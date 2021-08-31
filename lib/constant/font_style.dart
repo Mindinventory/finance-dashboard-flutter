@@ -6,6 +6,8 @@ import 'color_constant.dart';
 // This class will have all the color constant which are using in the App.
 
 const fontFamilyRubik = 'Rubik';
+const fontFamilyRoom = 'Room';
+const fontFamilyTrapper = 'Trapper';
 
 TextStyle textFiledNormal({Color color = Colors.black}) {
   return TextStyle(
@@ -45,7 +47,7 @@ const textWhite500_24 = TextStyle(
   fontWeight: FontWeight.normal,
 );
 
-const drawerListStyle = TextStyle(
+const drawerListText = TextStyle(
   fontFamily: fontFamilyRubik,
   color: AppColors.white,
   fontSize: 16,
@@ -98,4 +100,18 @@ const topActivitiesDetailsTitleStyle = TextStyle(
   fontSize: 14.0,
   fontWeight: FontWeight.w400,
   decoration: TextDecoration.none,
+);
+const creditCardNumberText = TextStyle(
+  color: AppColors.white,
+  fontFamily: fontFamilyTrapper,
+  fontSize: 18.0,
+  fontWeight: FontWeight.w500,
+  letterSpacing: 5,
+);
+
+const creditCardNameText = TextStyle(
+  color: AppColors.white,
+  fontFamily: fontFamilyRoom,
+  fontSize: 15.0,
+  fontWeight: FontWeight.w500,
 );

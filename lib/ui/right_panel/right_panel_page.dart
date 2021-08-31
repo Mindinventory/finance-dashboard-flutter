@@ -27,12 +27,14 @@ class _RightPanelState extends State<RightPanel> {
   Widget? _buildBody() {
     var appTheme = BlocProvider.of<ThemeCubit>(context, listen: false).appTheme;
     return Container(
+      margin: const EdgeInsets.only(top: 20),
       width: MediaQuery.of(context).size.width,
       child: Container(
         color: appTheme.primaryColor,
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 25.0),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 25.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-
 import '../../common/screen_type.dart';
 import '../../widgets/side_menu_widget/side_menu.dart';
 import '../../widgets/top_activites_widget/top_activities.dart';
+import '../../widgets/user_cards/credit_card_slider.dart';
 import '../right_panel/right_panel_page.dart';
 
 class DashBoard extends StatefulWidget {
@@ -14,8 +14,16 @@ class DashBoard extends StatefulWidget {
 }
 
 class _DashBoardState extends State<DashBoard> {
+  var _width = 0.0;
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    _width = MediaQuery.of(context).size.width;
     return Scaffold(
       drawer: const SideMenu(),
       body: _buildDashboardSections(context),
@@ -26,39 +34,39 @@ class _DashBoardState extends State<DashBoard> {
     return SafeArea(
       child: LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constraints) {
-        return Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Visibility(
-              visible: _visibilityForTabAndWeb(),
+            return Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Visibility(
+                  visible: (_width >= 1150),
               child: const Expanded(
                 child: SideMenu(),
               ),
             ),
-            Expanded(
-              flex: 5,
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                Expanded(
+                  flex: 5,
+                  child: SingleChildScrollView(
+                    child: Column(
                       children: [
-                        _buildCenterView(constraints),
-                        (constraints.maxWidth > 1230)
-                            ? Expanded(
-                                flex: 2,
-                                child: _buildChartView(),
-                              )
-                            : Container(),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            _buildCenterView(constraints),
+                            (constraints.maxWidth > 1230)
+                                ? Expanded(
+                              flex: 2,
+                              child: _buildChartView(),
+                            )
+                                : Container(),
+                          ],
+                        )
                       ],
-                    )
-                  ],
+                    ),
+                  ),
                 ),
-              ),
-            ),
-          ],
-        );
-      }),
+              ],
+            );
+          }),
     );
   }
 
@@ -89,48 +97,38 @@ class _DashBoardState extends State<DashBoard> {
               color: Colors.orange,
             ),
             const SizedBox(height: 16.0),
-            Column(
-              children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    (ScreenType.isDesktop(context))
-                        ? TopActivities()
-                        : Container(),
-                    const SizedBox(width: 16.0),
-                    Expanded(
-                      flex: 2,
-                      child: Column(
-                        children: [
-                          Container(
-                            child: const Text('Card 1'),
-                            alignment: Alignment.center,
-                            height: 210,
-                            color: Colors.orange,
-                          ),
-                          const SizedBox(height: 16.0),
-                          Container(
-                            child: const Text('Card 2'),
-                            alignment: Alignment.center,
-                            height: 210,
-                            color: Colors.orange,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
+            _getMidSection(),
             (ScreenType.isMobile(context))
                 ? const SizedBox(height: 16.0)
                 : Container(),
-            //(ScreenType.isMobile(context)) ? _buildChartView() : Container(),
             (constraints.maxWidth < 1230) ? _buildChartView() : Container(),
           ],
         ),
       ),
     );
+  }
+
+  Widget _getMidSection() {
+    return (!ScreenType.isMobile(context))
+        ? Column(
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  TopActivities(),
+                  const CreditCardSlider(
+                      isMobile: false) /*_buildCardSection(false)*/
+                ],
+              )
+            ],
+          )
+        : Column(
+            children: [
+              const CreditCardSlider(isMobile: true),
+              const SizedBox(height: 16.0),
+              TopActivities()
+            ],
+          );
   }
 
   Widget _buildChartView() {

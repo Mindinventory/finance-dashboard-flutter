@@ -1,3 +1,4 @@
+import '../../common/screen_type.dart';
 import 'package:flutter/material.dart';
 
 import '../../common/background_widget.dart';
@@ -39,28 +40,34 @@ class TopActivities extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: BackgroundWidget(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Padding(
-              padding: EdgeInsets.only(top: 33.0, left: 27.0, bottom: 5.0),
-              child: Text(
-                kTopActivities,
-                style: customReportTitle,
-              ),
+    return !ScreenType.isMobile(context)
+        ? Expanded(
+            child: _buildBackgroundWidget(),
+          )
+        : _buildBackgroundWidget();
+  }
+
+  BackgroundWidget _buildBackgroundWidget() {
+    return BackgroundWidget(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Padding(
+            padding: EdgeInsets.only(top: 33.0, left: 27.0, bottom: 5.0),
+            child: Text(
+              kTopActivities,
+              style: customReportTitle,
             ),
-            ListView.builder(
-              shrinkWrap: true,
-              itemCount: _topActivities.length,
-              itemBuilder: (context, index) => TopActivitiesTile(
-                topActivity: _topActivities[index],
-              ),
+          ),
+          ListView.builder(
+            shrinkWrap: true,
+            itemCount: _topActivities.length,
+            itemBuilder: (context, index) => TopActivitiesTile(
+              topActivity: _topActivities[index],
             ),
-            const SizedBox(height: 50),
-          ],
-        ),
+          ),
+          const SizedBox(height: 50),
+        ],
       ),
     );
   }
