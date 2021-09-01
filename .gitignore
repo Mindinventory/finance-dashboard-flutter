@@ -196,7 +196,6 @@ lib/generated_plugin_registrant.dart
 *.csr
 *.css
 *.htm
-*.html
 *.js
 *.jsp
 *.php
