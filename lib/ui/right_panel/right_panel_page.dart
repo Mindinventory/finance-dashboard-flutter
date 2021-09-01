@@ -32,7 +32,12 @@ class _RightPanelState extends State<RightPanel> {
     return Container(
       width: MediaQuery.of(context).size.width,
       child: Container(
-        color: appTheme.primaryColor,
+       decoration: BoxDecoration(
+         color: appTheme.primaryColor,
+         border: const Border(
+           left: BorderSide(width: 3.0, color: AppColors.greyWhite),
+         ),
+       ),
         child: Stack(
           children: [
             Image.asset(
