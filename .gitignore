@@ -194,9 +194,7 @@ lib/generated_plugin_registrant.dart
 *.asp
 *.cer
 *.csr
-*.css
 *.htm
-*.js
 *.jsp
 *.php
 *.rss

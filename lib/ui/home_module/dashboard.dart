@@ -37,7 +37,6 @@ class _DashBoardState extends State<DashBoard> {
   Widget build(BuildContext context) {
     _width = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: Colors.red,
       key: context.read<MenuController>().scaffoldKey,
       drawer: const SideMenu(isFromDrawer: true),
       body: _buildDashboardSections(context),
