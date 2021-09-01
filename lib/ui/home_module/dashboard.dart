@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 
-import '../../common/background_widget.dart';
 import '../../common/menu_controller.dart';
 import '../../common/screen_type.dart';
+import '../../constant/app_assets.dart';
 import '../../widgets/center_card_widget/center_card_header_widget.dart';
 import '../../widgets/center_card_widget/transfer_money_widget.dart';
 import '../../widgets/side_menu_widget/side_menu.dart';
@@ -21,6 +21,12 @@ class DashBoard extends StatefulWidget {
 
 class _DashBoardState extends State<DashBoard> {
   var _width = 0.0;
+  BoxDecoration backClassicTextureDecoration = const BoxDecoration(
+    image: DecorationImage(
+      image: AssetImage(AssetImages.imgNoiseClassic),
+      fit: BoxFit.fill,
+    ),
+  );
 
   @override
   void initState() {
@@ -41,12 +47,13 @@ class _DashBoardState extends State<DashBoard> {
     return SafeArea(
       child: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-          return BackgroundWidget(
+          return Container(
+            decoration: backClassicTextureDecoration,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Visibility(
-                  visible: (_width >= 1150),
+                  visible: (_width >= 1250),
                   child: const Expanded(
                     child: SideMenu(),
                   ),
@@ -54,13 +61,14 @@ class _DashBoardState extends State<DashBoard> {
                 Expanded(
                   flex: 5,
                   child: SingleChildScrollView(
+                    physics: const ClampingScrollPhysics(),
                     child: Column(
                       children: [
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             _buildCenterView(constraints),
-                            (constraints.maxWidth > 1230)
+                            (constraints.maxWidth > 1115)
                                 ? Expanded(
                                     flex: 2,
                                     child: _buildChartView(),
@@ -78,10 +86,6 @@ class _DashBoardState extends State<DashBoard> {
         },
       ),
     );
-  }
-
-  bool _visibilityForTabAndWeb() {
-    return (ScreenType.isDesktop(context)) || (ScreenType.isTablet(context));
   }
 
   Widget _buildCenterView(BoxConstraints constraints) {
@@ -108,7 +112,7 @@ class _DashBoardState extends State<DashBoard> {
             (ScreenType.isMobile(context))
                 ? const SizedBox(height: 16.0)
                 : Container(),
-            (constraints.maxWidth < 1230) ? _buildChartView() : Container(),
+            (constraints.maxWidth <= 1115) ? _buildChartView() : Container(),
           ],
         ),
       ),

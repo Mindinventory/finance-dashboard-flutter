@@ -18,11 +18,7 @@ class TransferMoney extends StatelessWidget {
       child: Stack(
         children: [
           _showRightUserImage(),
-
-          /// This widget is for showing blur view.
           _widgetBlurView(),
-
-          /// This widget shows a transfer money portion.
           _widgetTransferMoneyTextColumn(),
         ],
       ),
@@ -35,32 +31,24 @@ class TransferMoney extends StatelessWidget {
         top: 32,
         left: 32,
       ),
-      child: Row(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
+          const Text(
+            kTransfermoneytoYourBank,
+            style: textWhite500_24,
+          ),
+          const SizedBox(
+            height: 18,
+          ),
+          Stack(
+            fit: StackFit.loose,
+            clipBehavior: Clip.none,
             children: [
-              const Text(
-                kTransfermoneytoYourBank,
-                style: textWhite500_24,
-              ),
-              const SizedBox(
-                height: 30,
-                // height: 30.h,
-              ),
-              Stack(
-                fit: StackFit.loose,
-                clipBehavior: Clip.none,
-                children: [
-                  SvgPicture.asset(AssetImages.icCard),
-                  Positioned(
-                    left: 20,
-                    child: SvgPicture.asset(AssetImages.icVisa),
-                  ),
-                ],
+              SvgPicture.asset(AssetImages.icCard),
+              Positioned(
+                left: 20,
+                child: SvgPicture.asset(AssetImages.icVisa),
               ),
             ],
           ),
@@ -74,13 +62,13 @@ class TransferMoney extends StatelessWidget {
       alignment: Alignment.centerRight,
       child: Padding(
         padding: const EdgeInsets.only(
-          right: 32.0,
+          right: 40.0,
+          top: 10.0
         ),
         child: Image.asset(
           AssetImages.imgUser,
           fit: BoxFit.cover,
-          height: 200,
-          // height: 200.h,
+          height: 190,
         ),
       ),
     );
@@ -90,15 +78,18 @@ class TransferMoney extends StatelessWidget {
     return Positioned.fill(
       child: Align(
         alignment: Alignment.bottomCenter,
-        child: ClipRect(
+        child: ClipRRect(
+          borderRadius: const BorderRadius.only(
+            bottomLeft: Radius.circular(backgroundBorderRadius),
+            bottomRight: Radius.circular(backgroundBorderRadius),
+          ),
           child: BackdropFilter(
             filter: ImageFilter.blur(
               sigmaX: 3,
               sigmaY: 3,
             ),
             child: Container(
-              height: 50,
-              decoration: blurDecoration,
+              height: 62,
             ),
           ),
         ),
