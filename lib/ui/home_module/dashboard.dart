@@ -21,7 +21,7 @@ class DashBoard extends StatefulWidget {
 
 class _DashBoardState extends State<DashBoard> {
   var _width = 0.0;
-  BoxDecoration backClassicTextureDecoration = const BoxDecoration(
+  final BoxDecoration _backClassicTextureDecoration = const BoxDecoration(
     image: DecorationImage(
       image: AssetImage(AssetImages.imgNoiseClassic),
       fit: BoxFit.fill,
@@ -48,7 +48,7 @@ class _DashBoardState extends State<DashBoard> {
       child: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
           return Container(
-            decoration: backClassicTextureDecoration,
+            decoration: _backClassicTextureDecoration,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -131,7 +131,11 @@ class _DashBoardState extends State<DashBoard> {
             ],
           )
         : Column(
-            children: [const CreditCardSlider(isMobile: true), const SizedBox(height: 16.0), TopActivities()],
+            children: [
+              const CreditCardSlider(isMobile: true),
+              const SizedBox(height: 16.0),
+              TopActivities(),
+            ],
           );
   }
 
