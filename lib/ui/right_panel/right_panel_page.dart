@@ -53,6 +53,7 @@ class _RightPanelState extends State<RightPanel> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
+                    const SizedBox(height: 35.0),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
