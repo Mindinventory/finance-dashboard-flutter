@@ -8,11 +8,19 @@ import '../../common/screen_type.dart';
 import '../../constant/const_value.dart';
 import '../../constant/font_style.dart';
 
-class CenterHeader extends StatelessWidget {
+class CenterHeader extends StatefulWidget {
   const CenterHeader({Key? key}) : super(key: key);
 
   @override
+  _CenterHeaderState createState() => _CenterHeaderState();
+}
+
+class _CenterHeaderState extends State<CenterHeader> {
+  var _width = 0.0;
+
+  @override
   Widget build(BuildContext context) {
+    _width = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.all(0.0),
       child: Column(
@@ -26,7 +34,7 @@ class CenterHeader extends StatelessWidget {
               _buildSearchView(context),
             ],
           ),
-          (ScreenType.isDesktop(context)) ? _widgetSubHeader() : Container(),
+          (_width >= 1250) ? _widgetSubHeader() : Container(),
         ],
       ),
     );
@@ -47,7 +55,7 @@ class CenterHeader extends StatelessWidget {
   }
 
   Widget _buildHeaderTitleView(BuildContext context) {
-    return (ScreenType.isDesktop(context))
+    return (_width >= 1250)
         ? FittedBox(
             fit: BoxFit.cover,
             child: Text(
@@ -78,7 +86,7 @@ class CenterHeader extends StatelessWidget {
   }
 
   Widget _buildHamburgerButton(BuildContext context) {
-    return (!ScreenType.isDesktop(context))
+    return ((_width < 1250))
         ? BackgroundWidget(
             child: Container(
               height: 50,
