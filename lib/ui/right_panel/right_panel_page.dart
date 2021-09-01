@@ -42,7 +42,8 @@ class _RightPanelState extends State<RightPanel> {
           children: [
             Image.asset(
               AssetImages.imgBackNoise,
-              height: 950.0,
+              //height: 950.0,
+              height: MediaQuery.of(context).size.height,
               width: double.infinity,
               fit: BoxFit.fill,
             ),

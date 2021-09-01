@@ -1,7 +1,6 @@
-import 'package:finance_dashboard/widgets/charts/charts_core_widget/src/theme/range_slider_theme.dart';
-import 'package:finance_dashboard/widgets/charts/charts_core_widget/src/theme/slider_theme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
 import 'barcodes_theme.dart';
 import 'calendar_theme.dart';
 import 'charts_theme.dart';
@@ -12,6 +11,8 @@ import 'gauges_theme.dart';
 import 'maps_theme.dart';
 import 'pdfviewer_theme.dart';
 import 'range_selector_theme.dart';
+import 'range_slider_theme.dart';
+import 'slider_theme.dart';
 
 /// Applies a theme to descendant Syncfusion widgets.
 ///
@@ -99,7 +100,7 @@ class SfTheme extends StatelessWidget {
   /// build context.
   ///
   static SfThemeData of(BuildContext context) {
-    final _SfInheritedTheme? inheritedTheme =
+    final inheritedTheme =
         context.dependOnInheritedWidgetOfExactType<_SfInheritedTheme>();
     return inheritedTheme?.data ??
         (Theme.of(context).brightness == Brightness.light
@@ -125,7 +126,7 @@ class _SfInheritedTheme extends InheritedTheme {
 
   @override
   Widget wrap(BuildContext context, Widget child) {
-    final _SfInheritedTheme? ancestorTheme =
+    final ancestorTheme =
         context.findAncestorWidgetOfExactType<_SfInheritedTheme>();
     return identical(this, ancestorTheme)
         ? child
@@ -575,7 +576,7 @@ class SfThemeData with Diagnosticable {
 
   @override
   int get hashCode {
-    final List<Object> values = <Object>[
+    final values = <Object>[
       brightness,
       pdfViewerThemeData,
       chartThemeData,
@@ -596,7 +597,7 @@ class SfThemeData with Diagnosticable {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    final SfThemeData defaultData = SfThemeData.fallback();
+    final defaultData = SfThemeData.fallback();
     properties.add(EnumProperty<Brightness>('brightness', brightness,
         defaultValue: defaultData.brightness));
     properties.add(DiagnosticsProperty<SfPdfViewerThemeData>(

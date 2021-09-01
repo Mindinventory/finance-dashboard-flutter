@@ -6,10 +6,10 @@ class ScreenType extends StatelessWidget {
   final Widget desktop;
 
   const ScreenType({
-    Key? key,
     required this.mobile,
-    this.tablet,
     required this.desktop,
+    Key? key,
+    this.tablet,
   }) : super(key: key);
 
 // This size work fine on my design, maybe you need some customization depends on your design
