@@ -36,14 +36,14 @@ class _RightPanelState extends State<RightPanel> {
         child: Stack(
           children: [
             Image.asset(
-              AssetImages.imgLeftCardNoise,
+              AssetImages.imgBackNoise,
               height: 950.0,
               width: double.infinity,
               fit: BoxFit.fill,
             ),
-            SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 25.0),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: SingleChildScrollView(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[

@@ -17,11 +17,12 @@ class DrawerListTile extends StatelessWidget {
     return Stack(
       children: <Widget>[
         Container(
+          height: 60.0,
           margin: EdgeInsets.symmetric(
             horizontal: _width * 0.01,
           ),
           /*padding: const EdgeInsets.symmetric(
-            vertical: 8.0,
+            vertical: 7.0,
           ),*/
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15.0),
@@ -30,32 +31,51 @@ class DrawerListTile extends StatelessWidget {
           child: Stack(
             children: [
               tileData.isPressed
-                  ? const Center(
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                        child: Image(
-                          image: AssetImage(AssetImages.imgNoise),
-                        ),
+                  ? const ClipRRect(
+                      borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                      child: Image(
+                        image: AssetImage(AssetImages.imgNoise),
+                        fit: BoxFit.fill,
+                        height: double.infinity,
+                        width: double.infinity,
                       ),
                     )
                   : Container(),
-              Padding(
-                padding: const EdgeInsets.only(top: 8.0),
-                child: ListTile(
+              Center(
+                child: GestureDetector(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 10.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset(
+                          tileData.icons,
+                        ),
+                        const SizedBox(width: 30.0),
+                        Text(
+                          tileData.title,
+                          style: tileData.isPressed ? visibleDrawerListStyle : drawerListStyle,
+                        ),
+                      ],
+                    ),
+                  ),
                   onTap: pressFunction,
-                  leading: SvgPicture.asset(
-                    tileData.icons,
-                  ),
-                  title: Text(
-                    tileData.title,
-                    style: tileData.isPressed ? visibleDrawerListStyle : drawerListStyle,
-                  ),
                 ),
-              ),
+              )
+              /*ListTile(
+                onTap: pressFunction,
+                leading: SvgPicture.asset(
+                  tileData.icons,
+                ),
+                title: Text(
+                  tileData.title,
+                  style: tileData.isPressed ? visibleDrawerListStyle : drawerListStyle,
+                ),
+              ),*/
             ],
           ),
         ),
-        /*tileData.isPressed
+        /* tileData.isPressed
             ? Center(
                 child: Padding(
                   padding: EdgeInsets.symmetric(
