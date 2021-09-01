@@ -38,7 +38,7 @@ class _DashBoardState extends State<DashBoard> {
     _width = MediaQuery.of(context).size.width;
     return Scaffold(
       key: context.read<MenuController>().scaffoldKey,
-      drawer: const SideMenu(),
+      drawer: const SideMenu(isFromDrawer: true),
       body: _buildDashboardSections(context),
     );
   }
@@ -55,7 +55,7 @@ class _DashBoardState extends State<DashBoard> {
                 Visibility(
                   visible: (_width >= 1250),
                   child: const Expanded(
-                    child: SideMenu(),
+                    child: SideMenu(isFromDrawer: false),
                   ),
                 ),
                 Expanded(
@@ -109,9 +109,7 @@ class _DashBoardState extends State<DashBoard> {
             ),
             const SizedBox(height: 16.0),
             _getMidSection(),
-            (ScreenType.isMobile(context))
-                ? const SizedBox(height: 16.0)
-                : Container(),
+            (ScreenType.isMobile(context)) ? const SizedBox(height: 16.0) : Container(),
             (constraints.maxWidth <= 1115) ? _buildChartView() : Container(),
           ],
         ),
@@ -127,18 +125,13 @@ class _DashBoardState extends State<DashBoard> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   TopActivities(),
-                  const CreditCardSlider(
-                      isMobile: false) /*_buildCardSection(false)*/
+                  const CreditCardSlider(isMobile: false) /*_buildCardSection(false)*/
                 ],
               )
             ],
           )
         : Column(
-            children: [
-              const CreditCardSlider(isMobile: true),
-              const SizedBox(height: 16.0),
-              TopActivities()
-            ],
+            children: [const CreditCardSlider(isMobile: true), const SizedBox(height: 16.0), TopActivities()],
           );
   }
 
