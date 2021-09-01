@@ -49,13 +49,20 @@ const textWhite500_24 = TextStyle(
 
 const drawerListStyle = TextStyle(
   fontFamily: fontFamilyRubik,
-  color: AppColors.white,
-  fontSize: 16,
+  color: AppColors.grey,
+  fontSize: 16.0,
   fontWeight: FontWeight.normal,
 );
 
+const visibleDrawerListStyle = TextStyle(
+  fontFamily: fontFamilyRubik,
+  color: AppColors.white,
+  fontSize: 16.0,
+  //fontWeight: FontWeight.normal,
+);
+
 const customReportTitle = TextStyle(
-  color: Colors.white,
+  color: AppColors.white,
   fontFamily: fontFamilyRubik,
   fontSize: 20.0,
   fontWeight: FontWeight.w500,
@@ -63,7 +70,7 @@ const customReportTitle = TextStyle(
 );
 
 const customDropDownTitle = TextStyle(
-  color: Colors.white,
+  color: AppColors.white,
   fontFamily: fontFamilyRubik,
   fontSize: 16.0,
   fontWeight: FontWeight.w400,
@@ -71,7 +78,7 @@ const customDropDownTitle = TextStyle(
 );
 
 const percentageStyle = TextStyle(
-  color: Colors.white,
+  color: AppColors.white,
   fontFamily: fontFamilyRubik,
   fontSize: 25.0,
   fontWeight: FontWeight.w400,
@@ -79,7 +86,7 @@ const percentageStyle = TextStyle(
 );
 
 const percentageIconStyle = TextStyle(
-  color: Colors.white,
+  color: AppColors.white,
   fontFamily: fontFamilyRubik,
   fontSize: 15.0,
   fontWeight: FontWeight.w400,
@@ -87,7 +94,7 @@ const percentageIconStyle = TextStyle(
 );
 
 const doughnutDataStyle = TextStyle(
-  color: Colors.white,
+  color: AppColors.white,
   fontFamily: fontFamilyRubik,
   fontSize: 17.0,
   fontWeight: FontWeight.w400,
@@ -95,7 +102,7 @@ const doughnutDataStyle = TextStyle(
 );
 
 const topActivitiesDetailsTitleStyle = TextStyle(
-  color: Colors.white,
+  color: AppColors.white,
   fontFamily: fontFamilyRubik,
   fontSize: 14.0,
   fontWeight: FontWeight.w400,

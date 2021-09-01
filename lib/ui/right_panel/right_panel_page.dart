@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../common/background_widget.dart';
 import '../../common/images_path.dart';
+import '../../constant/app_assets.dart';
 import '../../constant/color_constant.dart';
 import '../../constant/font_style.dart';
 import '../../cubit/theme/theme_cubit.dart';
@@ -30,32 +31,41 @@ class _RightPanelState extends State<RightPanel> {
       width: MediaQuery.of(context).size.width,
       child: Container(
         color: appTheme.primaryColor,
-        child: SingleChildScrollView(
-          child: Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 25.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: Stack(
+          children: [
+            Image.asset(
+              AssetImages.imgLeftCardNoise,
+              height: 950.0,
+              width: double.infinity,
+              fit: BoxFit.fill,
+            ),
+            SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 25.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
-                    _mailButton()!,
-                    _profilePicture()!,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        _mailButton()!,
+                        _profilePicture()!,
+                      ],
+                    ),
+                    const SizedBox(height: 30.0),
+                    BackgroundWidget(
+                      child: _reportSplineGraph()!,
+                    ),
+                    const SizedBox(height: 15.0),
+                    BackgroundWidget(
+                      child: _reportDoughnutTitle()!,
+                    ),
+                    const SizedBox(height: 25.0),
                   ],
                 ),
-                const SizedBox(height: 30.0),
-                BackgroundWidget(
-                  child: _reportSplineGraph()!,
-                ),
-                const SizedBox(height: 15.0),
-                BackgroundWidget(
-                  child: _reportDoughnutTitle()!,
-                ),
-                const SizedBox(height: 25.0),
-              ],
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );

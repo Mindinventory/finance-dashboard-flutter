@@ -34,22 +34,22 @@ class _SideMenuState extends State<SideMenu> {
   }
 
   Widget _buildSideMenu(double _height, double _width) {
-    return SingleChildScrollView(
-      child: Container(
-        color: AppColors.sideMenu,
-        child: Stack(
-          children: <Widget>[
-            Image.asset(
-              AssetImages.imgLeftCardNoise,
-              height: 900.0,
-              width: double.infinity,
-              fit: BoxFit.fill,
-            ),
-            Column(
+    return Container(
+      color: AppColors.sideMenu,
+      child: Stack(
+        children: <Widget>[
+          Image.asset(
+            AssetImages.imgLeftCardNoise,
+            height: 900.0,
+            width: double.infinity,
+            fit: BoxFit.fill,
+          ),
+          SingleChildScrollView(
+            child: Column(
               children: [
-                const SizedBox(height: 20.0),
+                const SizedBox(height: 40.0),
                 SvgPicture.asset(AssetImages.menuHeader),
-                const SizedBox(height: 10.0),
+                const SizedBox(height: 40.0),
                 _buildDrawerList(),
                 SizedBox(
                   height: _height * 0.09,
@@ -57,8 +57,8 @@ class _SideMenuState extends State<SideMenu> {
                 _buildImageCard(_width, _height)
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -120,7 +120,7 @@ class _SideMenuState extends State<SideMenu> {
                     child: const Center(
                       child: Text(
                         kPremium,
-                        style: drawerListStyle,
+                        style: visibleDrawerListStyle,
                       ),
                     ),
                     height: 60,
