@@ -11,7 +11,9 @@ import '../../model/drawer_tiles_model.dart';
 import '../side_menu_widget/drawer_tiles.dart';
 
 class SideMenu extends StatefulWidget {
-  const SideMenu({Key? key}) : super(key: key);
+  final bool isFromDrawer;
+
+  const SideMenu({Key? key, this.isFromDrawer = false}) : super(key: key);
 
   @override
   _SideMenuState createState() => _SideMenuState();
@@ -30,7 +32,9 @@ class _SideMenuState extends State<SideMenu> {
   Widget build(BuildContext context) {
     var _height = MediaQuery.of(context).size.height;
     var _width = MediaQuery.of(context).size.width;
-    return _buildSideMenu(_height, _width);
+    return widget.isFromDrawer
+        ? FractionallySizedBox(widthFactor: 0.5, child: _buildSideMenu(_height, _width))
+        : _buildSideMenu(_height, _width);
   }
 
   Widget _buildSideMenu(double _height, double _width) {

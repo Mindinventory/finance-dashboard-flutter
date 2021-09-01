@@ -21,9 +21,6 @@ class DrawerListTile extends StatelessWidget {
           margin: EdgeInsets.symmetric(
             horizontal: _width * 0.01,
           ),
-          /*padding: const EdgeInsets.symmetric(
-            vertical: 7.0,
-          ),*/
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15.0),
             color: tileData.isPressed ? AppColors.customBlueColor : Colors.transparent,
@@ -41,56 +38,34 @@ class DrawerListTile extends StatelessWidget {
                       ),
                     )
                   : Container(),
-              Center(
-                child: GestureDetector(
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 10.0),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        SvgPicture.asset(
-                          tileData.icons,
-                        ),
-                        const SizedBox(width: 30.0),
-                        Text(
-                          tileData.title,
-                          style: tileData.isPressed ? visibleDrawerListStyle : drawerListStyle,
-                        ),
-                      ],
+              GestureDetector(
+                child: Container(
+                 width: 550.0,
+                  color: Colors.transparent,
+                  child: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 10.0),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          SvgPicture.asset(
+                            tileData.icons,
+                          ),
+                          const SizedBox(width: 30.0),
+                          Text(
+                            tileData.title,
+                            style: tileData.isPressed ? visibleDrawerListStyle : drawerListStyle,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                  onTap: pressFunction,
                 ),
-              )
-              /*ListTile(
                 onTap: pressFunction,
-                leading: SvgPicture.asset(
-                  tileData.icons,
-                ),
-                title: Text(
-                  tileData.title,
-                  style: tileData.isPressed ? visibleDrawerListStyle : drawerListStyle,
-                ),
-              ),*/
+              ),
             ],
           ),
         ),
-        /* tileData.isPressed
-            ? Center(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: _width * 0.01,
-                  ),
-                  child: const ClipRRect(
-                    borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                    child: Image(
-                      image: AssetImage(AssetImages.imgNoise),
-                    ),
-                  ),
-                ),
-              )
-            : Container(),*/
-        //tileData.isPressed ? Image.asset(AssetImages.imgLeftSelectedCardNoise):null,
       ],
     );
   }
