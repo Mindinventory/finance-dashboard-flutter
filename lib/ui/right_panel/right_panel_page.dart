@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../common/background_widget.dart';
 import '../../common/images_path.dart';
 import '../../constant/app_assets.dart';
+import '../../common/screen_type.dart';
 import '../../constant/color_constant.dart';
 import '../../constant/font_style.dart';
 import '../../cubit/theme/theme_cubit.dart';
@@ -108,22 +110,24 @@ class _RightPanelState extends State<RightPanel> {
                 ),
                 GestureDetector(
                   child: Container(
-                    height: 53.0,
-                    width: 137.82,
+                    height: (ScreenType.isDesktop(context)) ? 53.0.h : 53.0,
+                    width: (ScreenType.isDesktop(context))  ? 138.0.w : 138.0,
                     decoration: const BoxDecoration(
                       color: AppColors.reportDropDownColor,
                       borderRadius: BorderRadius.all(Radius.circular(15.0)),
                     ),
-                    child: Padding(
+                    child:  Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 15.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                          const Padding(
-                            padding: EdgeInsets.only(left: 5.0),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 5.0),
                             child: Text(
                               'Month',
-                              style: customDropDownTitle,
+                              style: (ScreenType.isDesktop(context)) ? customDropDownTitle.copyWith(
+                                fontSize: 16.0.sp,
+                              ) : customDropDownTitle,
                             ),
                           ),
                           const Icon(Icons.keyboard_arrow_down_outlined),

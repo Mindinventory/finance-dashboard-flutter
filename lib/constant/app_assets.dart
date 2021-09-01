@@ -15,4 +15,5 @@ class AssetImages {
   static const String creditCardPink = 'assets/icons/img_credit_card_pink.png';
   static const String creditCardBlue = 'assets/icons/img_credit_card_blue.png';
   static const String imgLeftCardNoise = 'assets/icons/img_noise_vertical.png';
+  static const String imgNoiseClassic = 'assets/icons/img_noise_classic.png';
 }
