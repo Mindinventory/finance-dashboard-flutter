@@ -33,13 +33,21 @@ class _SideMenuState extends State<SideMenu> {
     var _height = MediaQuery.of(context).size.height;
     var _width = MediaQuery.of(context).size.width;
     return widget.isFromDrawer
-        ? FractionallySizedBox(widthFactor: 0.5, child: _buildSideMenu(_height, _width))
+        ? Container(
+            width: 300.0,
+            child: _buildSideMenu(_height, _width),
+          )
         : _buildSideMenu(_height, _width);
   }
 
   Widget _buildSideMenu(double _height, double _width) {
     return Container(
-      color: AppColors.sideMenu,
+      decoration: const BoxDecoration(
+        color: AppColors.sideMenu,
+        border: Border(
+          right: BorderSide(width: 3.0, color: AppColors.greyWhite),
+        ),
+      ),
       child: Stack(
         children: <Widget>[
           Image.asset(
