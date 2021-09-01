@@ -21,22 +21,19 @@ class _CenterHeaderState extends State<CenterHeader> {
   @override
   Widget build(BuildContext context) {
     _width = MediaQuery.of(context).size.width;
-    return Padding(
-      padding: const EdgeInsets.all(0.0),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              _buildHamburgerButton(context),
-              _buildHeaderTitleView(context),
-              const Spacer(),
-              _buildSearchView(context),
-            ],
-          ),
-          (_width >= 1250) ? _widgetSubHeader() : Container(),
-        ],
-      ),
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            _buildHamburgerButton(context),
+            _buildHeaderTitleView(context),
+            const Spacer(),
+            _buildSearchView(context),
+          ],
+        ),
+        (_width >= 1250) ? _widgetSubHeader() : Container(),
+      ],
     );
   }
 
