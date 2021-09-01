@@ -60,6 +60,7 @@ class TopActivities extends StatelessWidget {
             ),
           ),
           ListView.builder(
+            physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemCount: _topActivities.length,
             itemBuilder: (context, index) => TopActivitiesTile(
