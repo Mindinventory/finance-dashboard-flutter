@@ -6,8 +6,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../common/background_widget.dart';
 import '../../common/images_path.dart';
-import '../../constant/app_assets.dart';
 import '../../common/screen_type.dart';
+import '../../constant/app_assets.dart';
 import '../../constant/color_constant.dart';
 import '../../constant/font_style.dart';
 import '../../cubit/theme/theme_cubit.dart';
@@ -29,24 +29,22 @@ class _RightPanelState extends State<RightPanel> {
 
   Widget? _buildBody() {
     var appTheme = BlocProvider.of<ThemeCubit>(context, listen: false).appTheme;
+    var _panelBackDecoration = BoxDecoration(
+      color: appTheme.primaryColor,
+      image: const DecorationImage(
+        image: AssetImage(AssetImages.imgBackNoise),
+        fit: BoxFit.fill,
+      ),
+      border: const Border(
+        left: BorderSide(width: 3.0, color: AppColors.greyWhite),
+      ),
+    );
     return Container(
       width: MediaQuery.of(context).size.width,
       child: Container(
-       decoration: BoxDecoration(
-         color: appTheme.primaryColor,
-         border: const Border(
-           left: BorderSide(width: 3.0, color: AppColors.greyWhite),
-         ),
-       ),
+       decoration: _panelBackDecoration,
         child: Stack(
           children: [
-            Image.asset(
-              AssetImages.imgBackNoise,
-              //height: 950.0,
-              height: MediaQuery.of(context).size.height,
-              width: double.infinity,
-              fit: BoxFit.fill,
-            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: SingleChildScrollView(
