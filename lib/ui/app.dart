@@ -24,7 +24,7 @@ class App extends StatelessWidget {
           return ScreenUtilInit(
             designSize: const Size(1440, 960),
             builder: () => GetMaterialApp(
-              title: 'Flutter Base Project',
+              title: 'Finance dashboard',
               debugShowCheckedModeBanner: false,
               enableLog: false,
               navigatorKey: Get.key,
