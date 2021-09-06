@@ -9,6 +9,7 @@ import '../../constant/color_constant.dart';
 import '../../constant/constant_public.dart';
 import '../../model/drawer_tiles_model.dart';
 import '../side_menu_widget/drawer_tiles.dart';
+import 'animated_image.dart';
 
 class SideMenu extends StatefulWidget {
   final bool isFromDrawer;
@@ -149,12 +150,12 @@ class _SideMenuState extends State<SideMenu> {
               ],
             ),
           ),
-          Positioned(
+          const Positioned(
             left: 0,
             right: 0,
-            top: 0,
-            bottom: 30,
-            child: Image.asset(AssetImages.silyImage),
+            top: 30,
+            bottom: 0,
+            child: AnimatedImage(),
           ),
         ],
       ),

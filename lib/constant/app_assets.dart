@@ -6,7 +6,8 @@ class AssetImages {
   static const String statisticsIcon = 'assets/icons/ic_statistics.svg';
   static const String premiumIcon = 'assets/icons/ic_premium.svg';
   static const String settingsIcon = 'assets/icons/ic_settings.svg';
-  static const String silyImage = 'assets/icons/img_sily.png';
+  static const String imgRocketPerson = 'assets/icons/img_rocket_person.png';
+  static const String imgCloud = 'assets/icons/img_cloud.png';
   static const String imgUser = 'assets/icons/img_user.png';
   static const String icCard = 'assets/icons/ic_card.svg';
   static const String icVisa = 'assets/icons/ic_visa.svg';
