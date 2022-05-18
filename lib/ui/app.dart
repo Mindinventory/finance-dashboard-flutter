@@ -23,7 +23,7 @@ class App extends StatelessWidget {
           print('BlocListener : ${themeCubit.isLight}');
           return ScreenUtilInit(
             designSize: const Size(1440, 960),
-            builder: () => GetMaterialApp(
+            builder: (_,__) => GetMaterialApp(
               title: 'Finance dashboard',
               debugShowCheckedModeBanner: false,
               enableLog: false,
