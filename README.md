@@ -1,16 +1,19 @@
-# in_kind_pro_flutter
+<p align="center">
+  <h1 align="center">Finance Dashboard Responsive UI</h1>
+  <h3 align="center" ><a href="https://finance-dashboard-92025.web.app/#/dashboard" >Finance Dashboard Demo 🚀</a></h3>
+</p>
 
-A new Flutter application.
+<h1 align="center"><img src="secure_banking_demo.gif"  /><h1>
 
-## Getting Started
+ <h3 align="center" ><a href="https://dribbble.com/shots/14761671-Finance-Dashboard-Dark-Concept">Finance Dashboard Design💥</a></h3>
 
-This project is a starting point for a Flutter application.
+In this demo Flutter project application that implements UI for secure banking to give modern user experience, and also it is Responsive.
 
-A few resources to get you started if this is your first Flutter project:
+# Features
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- Fully Responsive UI
+- Minimal and Effective Design
+ 
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# LICENSE!
+This template is [MIT-licensed](https://github.com/Mindinventory/secure_banking/blob/master/LICENSE "MIT-licensed").
