@@ -33,6 +33,7 @@ class _RightPanelState extends State<RightPanel> {
       color: appTheme.primaryColor,
       image: const DecorationImage(
         image: AssetImage(AssetImages.imgBackNoise),
+        filterQuality: FilterQuality.high,
         fit: BoxFit.fill,
       ),
       border: const Border(

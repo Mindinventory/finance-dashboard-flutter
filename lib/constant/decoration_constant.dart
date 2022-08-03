@@ -24,6 +24,7 @@ final kBackgroundWidgetGradientDecoration = BoxDecoration(
 );
 final kBackgroundWidgetInnerDecoration = BoxDecoration(
   image: const DecorationImage(
+    filterQuality: FilterQuality.high,
     image: AssetImage(AssetImages.imgNoise),
     fit: BoxFit.fill,
   ),

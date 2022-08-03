@@ -56,8 +56,10 @@ class _SideMenuState extends State<SideMenu> {
             height: MediaQuery.of(context).size.height,
             width: double.infinity,
             fit: BoxFit.fill,
+            filterQuality: FilterQuality.high,
           ),
           SingleChildScrollView(
+
             child: Column(
               children: [
                 const SizedBox(height: 40.0),
@@ -145,6 +147,7 @@ class _SideMenuState extends State<SideMenu> {
                     AssetImages.imgNoise,
                     height: 60.0,
                     fit: BoxFit.fill,
+                    filterQuality: FilterQuality.high,
                   ),
                 ),
               ],

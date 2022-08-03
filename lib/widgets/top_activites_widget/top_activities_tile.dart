@@ -84,6 +84,7 @@ class TopActivitiesTile extends StatelessWidget {
       color: AppColors.greyBlack,
       shape: BoxShape.circle,
       image: DecorationImage(
+        filterQuality: FilterQuality.high,
         image: AssetImage(AssetImages.imgNoise),
         fit: BoxFit.fill,
       ),

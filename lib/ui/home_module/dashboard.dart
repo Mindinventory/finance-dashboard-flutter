@@ -24,6 +24,7 @@ class _DashBoardState extends State<DashBoard> {
   final BoxDecoration _backClassicTextureDecoration = const BoxDecoration(
     image: DecorationImage(
       image: AssetImage(AssetImages.imgNoiseClassic),
+      filterQuality: FilterQuality.high,
       fit: BoxFit.fill,
     ),
   );

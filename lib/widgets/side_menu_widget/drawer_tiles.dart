@@ -35,6 +35,7 @@ class DrawerListTile extends StatelessWidget {
                         fit: BoxFit.fill,
                         height: double.infinity,
                         width: double.infinity,
+                        filterQuality: FilterQuality.high,
                       ),
                     )
                   : Container(),
