@@ -1,7 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="center_card.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
-    <option name="additionalArgs" value="--web-port 14522 --web-renderer canvaskit" />
-    <option name="filePath" value="$PROJECT_DIR$/lib/center_card.dart" />
-    <method v="2" />
-  </configuration>
-</component>
